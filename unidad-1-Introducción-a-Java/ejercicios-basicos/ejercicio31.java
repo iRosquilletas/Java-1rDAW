@@ -37,6 +37,6 @@ public class ejercicio31 {
 
     int once = a - b - c * 2;
     System.out.println(once);
-/*fvwwdjflwkjwekjelño24flk24f2l4f24l4fl24flif4jlijlijlhedfgwrlkgjhnlk3hgh3lkgk3hrhghlhlhlkhlkh*/
+
     }
 }

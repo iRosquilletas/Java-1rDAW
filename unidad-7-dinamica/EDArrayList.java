@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-public class random{
+public class EDArrayList{
  public static void main (String[] args){
  //Creamos ArrayList
  ArrayList<String> diasSemana = new ArrayList<String>();

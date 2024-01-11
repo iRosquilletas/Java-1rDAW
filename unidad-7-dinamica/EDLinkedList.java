@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.Iterator;
-public class swss{
+public class EDLinkedList{
  public static void main (String[] args){
  //Creamos LinkedList
  LinkedList<String> diasSemana = new LinkedList<String>();

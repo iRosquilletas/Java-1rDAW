@@ -5,30 +5,59 @@ import java.util.Scanner;
 public class Turnomatik {
     public static void main(String[] agrs){
         Scanner sc = new Scanner(System.in);
-        int a;
-        boolean b;
-        b=true;
+        Queue<String>gente = new LinkedList<String>();
+        Iterator<String> itq = gente.iterator(); //FALTA!
+        String a;
+        String name;
+        String coger;
+
+        do{
+     
         System.out.println("      -----Menu-----");
         System.out.println("1. Nuevo cliente ha entrado");
         System.out.println("2. Atender al siguiente cliente");
         System.out.println("3. Mostrar cola actual");
         System.out.println("0. Salir");
 
-        do{
         System.out.println("¿Cual opción eliges?");
-        a = sc.nextInt();
+        a = sc.nextLine();
+        
+        switch (a) {
+            case "1":
+                System.out.print("Introduce el nombre del cliente: ");
+                name = sc.nextLine();
+                gente.add(name);
 
-        if (a == 0){
-            b = false;
+                break;
+            case "2":
+                coger = gente.peek();
+                System.out.printf("Atendiendo a %s\n", coger);
+                System.out.printf("Eliminando de la cola a %s\n", coger);
+                gente.poll();
+                System.out.printf("Cola restante: %s\n", gente);
+                break;
+            case "3":
+                System.out.println(gente);
+                break;
+            case "0":
+                break;
+        
+            default:
+                System.out.println("Opción invalida");
+                break;
+                
         }
-        Queue<String>gente = new LinkedList<String>();
-        gente.add("hola");
-        System.out.println(gente);
+        
+    } while (a != "0");
+    
+    System.out.println("Chau");
 
-        } while(b = true);
-
-        System.out.print("OMG");
-
-        sc.close();
+    sc.close();
     }
 }
+
+
+
+
+
+

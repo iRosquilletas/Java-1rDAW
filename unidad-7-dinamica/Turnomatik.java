@@ -47,6 +47,13 @@ public class Turnomatik {
                 break;
                 
         }
+
+
+
+
+
+
+        
         
     } while (a != "0");
     

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Calculadora2RPN {
+public class CalculadoraRPN {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -34,7 +34,7 @@ public class Calculadora2RPN {
         scanner.close();
     }
 
-    private static void mostrarPila(Stack<Double> pila) {
+    public static void mostrarPila(Stack<Double> pila) {
         System.out.print("Pila: ");
         for (double elemento : pila) {
             System.out.print(elemento + " ");
@@ -42,12 +42,12 @@ public class Calculadora2RPN {
         System.out.println();
     }
 
-    private static boolean puedeRealizarOperacion(Stack<Double> pila, String operador) {
+    public static boolean puedeRealizarOperacion(Stack<Double> pila, String operador) {
         return pila.size() >= 2
                 && ("+".equals(operador) || "-".equals(operador) || "*".equals(operador) || "/".equals(operador));
     }
 
-    private static void realizarOperacion(Stack<Double> pila, String operador) {
+    public static void realizarOperacion(Stack<Double> pila, String operador) {
         if (puedeRealizarOperacion(pila, operador)) {
             double operand2 = pila.pop();
             double operand1 = pila.pop();

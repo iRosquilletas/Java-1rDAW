@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,30 +20,29 @@ public class Estadistica {
                 double numero = Double.parseDouble(input);
                 numeros.add(numero);
 
-                double media = calcularMedia(numeros);
-                double desviacionTipica = calcularDesviacionTipica(numeros, media);
+                double media = Media(numeros);
+                double desviacionTipica = DesviacionTipica(numeros, media);
 
                 System.out.println("Media: " + media);
                 System.out.println("Desviación Típica: " + desviacionTipica);
             } catch (NumberFormatException e) {
-                System.out.println("Error: Ingresa un número válido o 'q' para salir.");
+                System.out.println("El número que has puesto no es valido");
             }
         }
 
         scanner.close();
     }
 
-    private static double calcularMedia(ArrayList<Double> numeros) {
+    public static double Media(ArrayList<Double> numeros) {
         double suma = 0;
 
         for (double numero : numeros) {
             suma += numero;
         }
-
         return suma / numeros.size();
     }
 
-    private static double calcularDesviacionTipica(ArrayList<Double> numeros, double media) {
+    public static double DesviacionTipica(ArrayList<Double> numeros, double media) {
         double sumaCuadrados = 0;
 
         for (double numero : numeros) {

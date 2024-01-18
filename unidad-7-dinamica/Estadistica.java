@@ -2,40 +2,38 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Estadistica {
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         ArrayList<Double> numeros = new ArrayList<>();
-
-        System.out.println("Introduce números (o 'q' para salir):");
-
+        String numero2;
+        double numero, media, desviacionTipica;
         double suma = 0;
-        double sumaCuadrados = 0;
+        double suma2 = 0;
+        
+        System.out.println("Introduce números o apreta 'q' para salir");
 
         while (true) {
-            String input = scanner.nextLine();
+            numero2 = sc.nextLine();
 
-            if (input.equalsIgnoreCase("q")) {
+            if (numero2.equals("q")) {
                 break;
             }
-
-            try {
-                double numero = Double.parseDouble(input);
+                numero = Double.parseDouble(numero2);
                 numeros.add(numero);
 
                 suma += numero;
-                double media = suma / numeros.size();
+                media = suma / numeros.size();
 
-                sumaCuadrados += Math.pow(numero - media, 2);
-                double desviacionTipica = Math.sqrt(sumaCuadrados / numeros.size());
+                suma2 += Math.pow(numero - media, 2);
+                
+                desviacionTipica = Math.sqrt(suma2 / numeros.size());
 
-                System.out.println("Media: " + media);
-                System.out.println("Desviación Típica: " + desviacionTipica);
-            } catch (NumberFormatException e) {
-                System.out.println("Error: Ingresa un número válido o 'q' para salir.");
+                System.out.printf("La media es: %f%n", media);
+                System.out.printf("La desviación típica es: %f%n", desviacionTipica);
+          
             }
+            System.out.println("¡Qué tengas un buen día!");
+            sc.close();
         }
-
-        scanner.close();
     }
-}
+

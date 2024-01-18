@@ -1,16 +1,12 @@
 import java.util.Queue;
 import java.util.LinkedList;
 import java.util.Scanner;
-import lib.clearConsole;
 
 public class Turnomatik {
     public static void main(String[] agrs) {
-        clearConsole.main(agrs);
         Scanner sc = new Scanner(System.in);
         Queue<String> gente = new LinkedList<String>();
-        String a;
-        String name;
-        String coger;
+        String a, name, coger;
 
         do {
 
@@ -42,7 +38,7 @@ public class Turnomatik {
                     System.out.println(gente);
                     int position = 1;
                     for (String customer : gente) {
-                        System.out.printf("Posición %d: %s\n", position, customer);
+                        System.out.printf("Cliente %d: %s\n", position, customer);
                         position++;
                     }
 

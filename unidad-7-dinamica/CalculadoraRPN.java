@@ -4,78 +4,69 @@ import java.util.Stack;
 public class CalculadoraRPN {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         Stack<Double> pila = new Stack<>();
-
+        String numero2;
         System.out.println("Calculadora RPN (Escribe 'q' para salir)");
 
         while (true) {
-            mostrarPila(pila);
+
+            System.out.print("Pila: ");
+            for (double elemento : pila) {
+                System.out.print(elemento + " ");
+            }
+            System.out.println();
 
             System.out.print("Ingresa número u operador: ");
-            String input = scanner.nextLine();
+            numero2 = sc.nextLine();
 
-            if (input.equalsIgnoreCase("q")) {
+            if (numero2.equalsIgnoreCase("q")) {
                 break;
             }
 
             try {
-                double numero = Double.parseDouble(input);
+                double numero = Double.parseDouble(numero2);
                 pila.push(numero);
             } catch (NumberFormatException e) {
-                if (puedeRealizarOperacion(pila, input)) {
-                    realizarOperacion(pila, input);
+                if (pila.size() >= 2
+                        && ("+".equals(numero2) || "-".equals(numero2) || "*".equals(numero2) || "/".equals(numero2))) {
+                    if (!pila.isEmpty()) {
+                        double operand2 = pila.pop();
+                        if (!pila.isEmpty()) {
+                            double operand1 = pila.pop();
+                            double resultado = 0;
+                            switch (numero2) {
+                                case "+":
+                                    resultado = operand1 + operand2;
+                                    break;
+                                case "-":
+                                    resultado = operand1 - operand2;
+                                    break;
+                                case "*":
+                                    resultado = operand1 * operand2;
+                                    break;
+                                case "/":
+                                    resultado = operand1 / operand2;
+                                    break;
+                                default:
+                                    System.out.println("Error");
+                                    continue;
+                            }
+                            pila.push(resultado);
+                        } else {
+                            System.out.println("Error");
+                        }
+                    } else {
+                        System.out.println("Error");
+                    }
                 } else {
-                    System.out.println("Error: Entrada no válida.");
+                    System.out.println("Error");
                 }
             }
+
         }
 
-        scanner.close();
-    }
-
-    public static void mostrarPila(Stack<Double> pila) {
-        System.out.print("Pila: ");
-        for (double elemento : pila) {
-            System.out.print(elemento + " ");
-        }
-        System.out.println();
-    }
-
-    public static boolean puedeRealizarOperacion(Stack<Double> pila, String operador) {
-        return pila.size() >= 2
-                && ("+".equals(operador) || "-".equals(operador) || "*".equals(operador) || "/".equals(operador));
-    }
-
-    public static void realizarOperacion(Stack<Double> pila, String operador) {
-        if (puedeRealizarOperacion(pila, operador)) {
-            double operand2 = pila.pop();
-            double operand1 = pila.pop();
-            double resultado = 0;
-
-            switch (operador) {
-                case "+":
-                    resultado = operand1 + operand2;
-                    break;
-                case "-":
-                    resultado = operand1 - operand2;
-                    break;
-                case "*":
-                    resultado = operand1 * operand2;
-                    break;
-                case "/":
-                    if (operand2 == 0) {
-                        System.out.println("Error: División por cero.");
-                        return;
-                    }
-                    resultado = operand1 / operand2;
-                    break;
-                default:
-                    System.out.println("Error: Operador no válido.");
-                    return;
-            }
-
-            pila.push(resultado);
-        }
+        System.out.println("¡Que tenga un buen día!");
+        sc.close();
     }
 }

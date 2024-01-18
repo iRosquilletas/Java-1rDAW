@@ -9,6 +9,9 @@ public class Estadistica {
 
         System.out.println("Introduce números (o 'q' para salir):");
 
+        double suma = 0;
+        double sumaCuadrados = 0;
+
         while (true) {
             String input = scanner.nextLine();
 
@@ -20,50 +23,19 @@ public class Estadistica {
                 double numero = Double.parseDouble(input);
                 numeros.add(numero);
 
-                double media = Media(numeros);
-                double desviacionTipica = DesviacionTipica(numeros, media);
+                suma += numero;
+                double media = suma / numeros.size();
+
+                sumaCuadrados += Math.pow(numero - media, 2);
+                double desviacionTipica = Math.sqrt(sumaCuadrados / numeros.size());
 
                 System.out.println("Media: " + media);
                 System.out.println("Desviación Típica: " + desviacionTipica);
             } catch (NumberFormatException e) {
-                System.out.println("El número que has puesto no es valido");
+                System.out.println("Error: Ingresa un número válido o 'q' para salir.");
             }
         }
 
         scanner.close();
     }
-
-    public static double Media(ArrayList<Double> numeros) {
-        double suma = 0;
-
-        for (double numero : numeros) {
-            suma += numero;
-        }
-        return suma / numeros.size();
-    }
-
-    public static double DesviacionTipica(ArrayList<Double> numeros, double media) {
-        double sumaCuadrados = 0;
-
-        for (double numero : numeros) {
-            sumaCuadrados += Math.pow(numero - media, 2);
-        }
-
-        return Math.sqrt(sumaCuadrados / numeros.size());
-    }
 }
-
-/*
- * numeros ingresados: 1, 2, 3, 2
- * 
- * hacemos la media 1 + 2 + 3 +2 = 8 8/4 = 2. 2 es la media
- * Ahora (1 - 2) elevado a 2 = 1
- * (2-2) elevado a 2 = 0
- * (3-2) elevado a 2 = 1
- * (2-2) elevado a 2 = 0
- * Sumamos los resultados, que es 2 y lo dividimos en una raiz cuadrada entre el
- * total de numeros ingresados, que son 4.
- * Raiz cuadrada de 2 / 4
- * 
- * 
- */

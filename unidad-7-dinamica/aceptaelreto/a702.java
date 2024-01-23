@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class a702 {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         while (scanner.hasNext()) {
             int inicioAño = scanner.nextInt();

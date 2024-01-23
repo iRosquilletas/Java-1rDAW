@@ -7,37 +7,40 @@ import java.util.Scanner;
 public class a709 {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        int nVotos;
+        String empate = "Empate";
 
         while (true) {
-            int numVotos = scanner.nextInt();
+            nVotos = sc.nextInt();
 
-            if (numVotos == 0) {
+            if (nVotos == 0) {
                 break;
+                
             }
 
             Map<String, Integer> conteoVotos = new HashMap<>();
 
-            for (int i = 0; i < numVotos; i++) {
-                String voto = scanner.next();
+            for (int i = 0; i < nVotos; i++) {
+                String voto = sc.next();
                 conteoVotos.put(voto, conteoVotos.getOrDefault(voto, 0) + 1);
             }
 
-            int maxVotos = 0;
-            String ganador = "EMPATE";
+            int xVotos = 0;
+         
 
             for (Map.Entry<String, Integer> entry : conteoVotos.entrySet()) {
-                if (entry.getValue() > maxVotos) {
-                    maxVotos = entry.getValue();
-                    ganador = entry.getKey();
-                } else if (entry.getValue() == maxVotos) {
-                    ganador = "EMPATE";
+                if (entry.getValue() > xVotos) {
+                    xVotos = entry.getValue();
+                    empate = entry.getKey();
+                } else if (entry.getValue() == xVotos) {
+                    empate = "EMPATE";
                 }
             }
 
-            System.out.println(ganador);
+            System.out.println(empate);
         }
 
-        scanner.close();
+        sc.close();
     }
 }

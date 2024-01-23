@@ -16,7 +16,7 @@ public class a709 {
 
             if (nVotos == 0) {
                 break;
-                
+
             }
 
             Map<String, Integer> conteoVotos = new HashMap<>();
@@ -28,7 +28,6 @@ public class a709 {
 
             int xVotos = 0;
          
-
             for (Map.Entry<String, Integer> entry : conteoVotos.entrySet()) {
                 if (entry.getValue() > xVotos) {
                     xVotos = entry.getValue();

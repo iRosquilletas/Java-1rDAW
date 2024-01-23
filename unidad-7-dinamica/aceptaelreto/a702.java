@@ -9,9 +9,9 @@ public class a702 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        while (scanner.hasNext()) {
-            int inicioAño = scanner.nextInt();
-            int numMovimientos = scanner.nextInt();
+        while (sc.hasNext()) {
+            int inicioAño = sc.nextInt();
+            int numMovimientos = sc.nextInt();
 
             if (inicioAño == 0 && numMovimientos == 0) {
                 break;
@@ -21,9 +21,9 @@ public class a702 {
             ahorrosPorMes.put("01", inicioAño);
 
             for (int i = 0; i < numMovimientos; i++) {
-                String fecha = scanner.next();
-                int cantidad = scanner.nextInt();
-                String concepto = scanner.nextLine().trim();
+                String fecha = sc.next();
+                int cantidad = sc.nextInt();
+                String concepto = sc.nextLine().trim();
 
                 String mes = fecha.substring(3, 5);
 
@@ -41,7 +41,7 @@ public class a702 {
             imprimirAhorros(ahorrosPorMes);
         }
 
-        scanner.close();
+        sc.close();
     }
 
     public static void imprimirAhorros(Map<String, Integer> ahorrosPorMes) {

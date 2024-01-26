@@ -8,9 +8,8 @@ public class a238 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int dinero, sicarios;
+ 
         
-
-
         while (true) {
             dinero = sc.nextInt();
             sicarios = sc.nextInt();

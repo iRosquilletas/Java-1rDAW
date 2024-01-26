@@ -23,6 +23,8 @@ public class a709 {
 
             for (int i = 0; i < nVotos; i++) {
                 String voto = sc.next();
+
+                
                 conteoVotos.put(voto, conteoVotos.getOrDefault(voto, 0) + 1);
             }
 

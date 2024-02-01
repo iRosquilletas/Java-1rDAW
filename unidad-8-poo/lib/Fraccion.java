@@ -5,8 +5,8 @@ public class Fraccion {
     private int denominador;
 
     public Fraccion() {
-        this.numerador = 2;
-        this.denominador = 6;
+        this.numerador = 78;
+        this.denominador = 9;
     }
 
     public int getNumerador() {

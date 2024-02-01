@@ -11,8 +11,8 @@ public class Fraccion1 {
         System.out.println("simplificar: " + fraccion.getNumerador() + "/" + fraccion.getDenominador());
 
         Fraccion otra = new Fraccion();
-        otra.setNumerador(3);
-        otra.setDenominador(5);
+        otra.setNumerador(7);
+        otra.setDenominador(88);
 
         fraccion.multiplicar(otra);
         System.out.println("multiplicación: " + fraccion.getNumerador() + "/" + fraccion.getDenominador());

@@ -1,88 +1,68 @@
 package lib;
-
-public class tiempo{
-    private int horas;
+public class Tiempo implements Comparable<Tiempo> {
+    private int hor as;
     private int minutos;
     private int segundos;
 
 
-    public int getHoras() {
-        return horas;
-    }
-    public void setHoras(int horas) {
-        this.horas = horas;
-    }
-    public int getMinutos() {
-        return minutos;
-    }
-    public void setMinutos(int minutos) {
-        this.minutos = minutos;
-    }
-    public int getSegundos() {
-        return segundos;
-    }
-    public void setSegundos(int segundos) {
-        this.segundos = segundos;
-    }
-    public tiempo(int horas, int minutos, int segundos){
-        this.horas = horas;
         this.minutos = minutos;
         this.segundos = segundos;
-
     }
 
-    public tiempo suma(tiempo otroTiempo){
-        int totalHoras = this.horas + otroTiempo.horas;
-        int totalMinutos = this.minutos + otroTiempo.minutos;
-        int totalSegundos = this.segundos + otroTiempo.segundos;
+    
+    public Tiempo suma(Tiempo otroTiempo) {
+     
 
-        if (totalSegundos >= 60) {
-            totalMinutos += totalSegundos / 60;
-            totalSegundos %= 60;
+        int nuevosMinutos = this.minutos + otroTiempo.minutos;
+        int nuevosSegundos = this.segundos + otroTiempo.segundos;
+
+
+        if (nuevosSegundos >= 60) {
+            nuevosMinutos += nuevosSegundos / 60;
+     
+
         }
 
-        if (totalMinutos >= 60) {
-            totalHoras += totalMinutos / 60;
-            totalMinutos %= 60;
-        }
+     
 
-        return new tiempo(totalHoras, totalMinutos, totalSegundos);
+            nuevaHoras += nuevosMinutos / 60;
+            nuevosMinutos %= 60;
+     
+
+     
+        return new Tiempo(nuevaHoras, nuevosMinutos, nuevosSegundos);
     }
 
-    public tiempo resta(tiempo otroTiempo){
-        int totalHoras = this.horas - otroTiempo.horas;
-        int totalMinutos = this.minutos - otroTiempo.minutos;
-        int totalSegundos = this.segundos - otroTiempo.segundos;
+    public Tiempo resta(Tiempo otroTiempo) {
+        int nuevaHoras = this.horas - otroTiempo.horas;
+        int nuevosMinutos = this.minutos - otroTiempo.minutos;
+        int nuevosSegundos = this.segundo s - otroTiempo.segundos;
 
-        if (totalHoras < 0 || totalMinutos < 0 || totalSegundos < 0) {
-            return new tiempo(0, 0, 0);
+        if (nuevaHoras < 0 || nuevosMinutos < 0 || nuevosSegundos < 0) {
+            return new Tiempo(0, 0, 0);
         }
 
-        return new tiempo(totalHoras, totalMinutos, totalSegundos);
+        return new Tiempo(nuevaHoras, nuevosMinutos, nuevosSegundos);
     }
-    public int compare(tiempo otroTiempo){
-        if (this.horas != otroTiempo.horas){
+
+    @Override
+    public int compareTo(Tiempo otroTiempo) {
+        if (this.horas != otroTiempo.horas) {
             return Integer.compare(this.horas, otroTiempo.horas);
-
         } else if (this.minutos != otroTiempo.minutos) {
             return Integer.compare(this.minutos, otroTiempo.minutos);
-
         } else {
             return Integer.compare(this.segundos, otroTiempo.segundos);
         }
+    } 
+
+    @Override
+    public String toString() {
+        return String.format("%dh %dm %ds", horas, minutos, segundos);
     }
-    
+}
 
 
-    
-
-    }   
-
-
-
-
-
-    
-
+      
 
 

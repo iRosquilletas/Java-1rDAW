@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class a709 {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int nVotos;
@@ -13,24 +12,18 @@ public class a709 {
 
         while (true) {
             nVotos = sc.nextInt();
-
             if (nVotos == 0) {
                 break;
 
             }
-
-            Map<String, Integer> conteoVotos = new HashMap<>();
-
+            Map<String, Integer> contar = new HashMap<>();
             for (int i = 0; i < nVotos; i++) {
                 String voto = sc.next();
-
-                
-                conteoVotos.put(voto, conteoVotos.getOrDefault(voto, 0) + 1);
+                contar.put(voto, contar.getOrDefault(voto, 0) + 1);
             }
 
             int xVotos = 0;
-         
-            for (Map.Entry<String, Integer> entry : conteoVotos.entrySet()) {
+            for (Map.Entry<String, Integer> entry : contar.entrySet()) {
                 if (entry.getValue() > xVotos) {
                     xVotos = entry.getValue();
                     empate = entry.getKey();
@@ -41,7 +34,6 @@ public class a709 {
 
             System.out.println(empate);
         }
-
         sc.close();
     }
 }

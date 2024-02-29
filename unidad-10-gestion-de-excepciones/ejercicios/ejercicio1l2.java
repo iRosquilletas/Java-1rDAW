@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-public class InOK {
-    private Scanner scanner;
+public class ejercicio1l2 {
+    private Scanner sc;
     public static final String[] COMPOSITORES = { "Bach", "Haydn", "Mozart", "Beethoven", "Brahms", "Mahler",
             "Bartok" };
 
-    public InOK() {
-        scanner = new Scanner(System.in);
+    public ejercicio1l2() {
+        sc = new Scanner(System.in);
     }
 
     public int LeeInt() {
@@ -14,12 +14,12 @@ public class InOK {
         boolean inputAccepted = false;
         do {
             try {
-                System.out.print("Introduce un número entero: ");
-                num = scanner.nextInt();
+                System.out.print("Número entero: ");
+                num = sc.nextInt();
                 inputAccepted = true;
             } catch (Exception e) {
-                System.out.println("Error: Por favor ingresa un número entero válido.");
-                scanner.nextLine(); // Limpiar el buffer del scanner
+                System.out.println("Error");
+                sc.nextLine();
             }
         } while (!inputAccepted);
         return num;
@@ -30,7 +30,7 @@ public class InOK {
         do {
             num = LeeInt();
             if (num <= 0) {
-                System.out.println("Error: Por favor ingresa un número entero positivo.");
+                System.out.println("Error");
             }
         } while (num <= 0);
         return num;
@@ -41,7 +41,7 @@ public class InOK {
         do {
             num = LeeInt();
             if (num < min || num > max) {
-                System.out.println("Error: Por favor ingresa un número entero en el rango [" + min + ", " + max + "].");
+                System.out.println("Error");
             }
         } while (num < min || num > max);
         return num;
@@ -52,12 +52,12 @@ public class InOK {
         boolean inputAccepted = false;
         do {
             try {
-                System.out.print("Introduce un número real: ");
-                num = scanner.nextDouble();
+                System.out.print("número real: ");
+                num = sc.nextDouble();
                 inputAccepted = true;
             } catch (Exception e) {
-                System.out.println("Error: Por favor ingresa un número real válido.");
-                scanner.nextLine(); // Limpiar el buffer del scanner
+                System.out.println("Error");
+                sc.nextLine();
             }
         } while (!inputAccepted);
         return num;
@@ -68,27 +68,27 @@ public class InOK {
         do {
             num = LeeDou();
             if (num < min || num > max) {
-                System.out.println("Error: Por favor ingresa un número real en el rango [" + min + ", " + max + "].");
+                System.out.println("Error");
             }
         } while (num < min || num > max);
         return num;
     }
 
     public int ValidaString() throws ElementoNoExistente {
-        System.out.print("Introduce un nombre de compositor: ");
-        String nombreCompositor = scanner.nextLine();
+        System.out.print("Número de compositor: ");
+        String nombreCompositor = sc.nextLine();
 
         for (int i = 0; i < COMPOSITORES.length; i++) {
             if (COMPOSITORES[i].equalsIgnoreCase(nombreCompositor)) {
-                return i; // Devuelve el índice si el nombre del compositor coincide
+                return i;
             }
         }
 
-        throw new ElementoNoExistente("El compositor \"" + nombreCompositor + "\" no existe.");
+        throw new ElementoNoExistente("No existe ese compositor");
     }
 
     public static void main(String[] args) {
-        InOK inputHandler = new InOK();
+        ejercicio1l2 inputHandler = new ejercicio1l2();
 
         int entero = inputHandler.LeeInt();
         System.out.println("Número entero: " + entero);
@@ -107,7 +107,7 @@ public class InOK {
 
         try {
             int indice = inputHandler.ValidaString();
-            System.out.println("El compositor se encuentra en la posición " + indice + " del array.");
+            System.out.println("El compositor se encuentra en la posición " + indice);
         } catch (ElementoNoExistente e) {
             System.out.println(e.getMessage());
         }

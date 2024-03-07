@@ -18,8 +18,10 @@ public class ejercicio42 {
         } catch (ArithmeticException e) {
             System.out.println("ArithmeticException");
         } catch (Exception e) {
-            
+
             System.out.println("Error");
+            System.out.println("karamba");
+
         } finally {
             sc.close();
         }

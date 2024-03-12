@@ -1,0 +1,2 @@
+Buenas, primera linea
+Este es un número: 42

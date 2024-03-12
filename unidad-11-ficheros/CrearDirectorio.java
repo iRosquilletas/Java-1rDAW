@@ -6,7 +6,7 @@ public class CrearDirectorio {
         try {
             File directorio = new File("directorio");
             if (directorio.mkdir()) {
-                System.out.println("Directorio creado: " + file.getName());
+                System.out.println("Directorio creado: " + directorio.getName());
             } else {
                 System.out.println("El Directorio ya existe");
             }

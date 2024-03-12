@@ -5,13 +5,13 @@ public class rmj {
 
         try {
             File file = new File(agrs[0]);
-            if (file.delete()) {
-                System.out.println("Fichero borrado");
+            if (file.exists()) {
+                System.out.println("Es un directorio");
             } else {
-                System.out.println("El fichero no existe.");
+                file.delete();
             }
         } catch (Exception e) {
-            System.out.println("XD");
+            System.out.println("No sé de que me hablas");
         }
 
     }

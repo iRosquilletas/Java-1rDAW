@@ -5,16 +5,22 @@ import java.util.Scanner;
 public class usuarios {
     public static void main(String[] agrs) {
         Scanner sc = new Scanner(System.in);
+        System.out.print("Introduce el nombre del archivo con su extension: ");
+        String archivo = sc.nextLine();
+        boolean a = true;
+        while (a) {
 
-        while (true) {
-
-            System.out.println("Introduce el nombre: ");
+            System.out.print("Introduce el nombre(q para salir): ");
             String user = sc.nextLine();
-            System.out.println("Introduce la contraseña: ");
+            if (user.equals("q")) {
+                a = false;
+                break;
+            }
+            System.out.print("Introduce la contraseña: ");
             String password = sc.nextLine();
 
             try {
-                FileWriter fw = new FileWriter("file51.txt", true);
+                FileWriter fw = new FileWriter(archivo, true);
                 fw.write(user + ":" + password);
                 fw.close();
 
@@ -23,5 +29,8 @@ public class usuarios {
             }
 
         }
+        sc.close();
+
     }
+
 }

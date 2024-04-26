@@ -3,6 +3,5 @@ module agendasamuel {
     requires javafx.fxml;
 
     opens agendasamuel to javafx.fxml;
-
     exports agendasamuel;
 }

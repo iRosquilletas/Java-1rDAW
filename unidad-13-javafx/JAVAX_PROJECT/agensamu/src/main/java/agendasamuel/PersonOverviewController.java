@@ -1,12 +1,11 @@
 package agendasamuel;
 
-import agendasamuel.MainApp;
-import agendasamuel.Person;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+//import ch.makery.address.MainApp;
+//import ch.makery.address.model.Person;
 
 public class PersonOverviewController {
     @FXML
@@ -30,7 +29,7 @@ public class PersonOverviewController {
     private Label birthdayLabel;
 
     // Reference to the main application.
-    private MainApp mainApp;
+    private App mainApp;
 
     /**
      * The constructor.
@@ -55,7 +54,7 @@ public class PersonOverviewController {
      * 
      * @param mainApp
      */
-    public void setMainApp(MainApp mainApp) {
+    public void setMainApp(App mainApp) {
         this.mainApp = mainApp;
 
         // Add observable list data to the table
